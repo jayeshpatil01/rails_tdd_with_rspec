@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   end
   root to: 'home#index'
   get 'about', to: 'about#index'
+  resources :consoles, only: [:index, :new, :create]
 end
