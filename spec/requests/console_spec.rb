@@ -12,9 +12,9 @@ RSpec.describe 'Console requests', type: :request do
     Console.create(name: 'PS2', manufacturer: 'Sony')
   end
 
-  describe 'GET /consoles' do
+  describe 'GET /api/consoles' do
     it 'returns an array of some consoles' do
-      get '/consoles'
+      get '/api/consoles'
 
       expect(response_json['consoles']).to include(
         'Nintendo NES',
@@ -29,7 +29,7 @@ RSpec.describe 'Console requests', type: :request do
     end
 
     it 'supports specifying consoles for a specific manufacturer' do
-      get '/consoles', params: { manufacturer: 'Nintendo' }
+      get '/api/consoles', params: { manufacturer: 'Nintendo' }
 
       expect(response_json['consoles']).to contain_exactly(
         'Nintendo NES',
